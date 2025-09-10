@@ -7,9 +7,6 @@ const counter = new client.Counter({
   });
 
 exports.countRequests = (req, res, next) => {
-
     counter.labels({method: req.method, path: req.path}).inc();
-
-    console.log('Request Type:', req.method, req.path);
     next();
 }
